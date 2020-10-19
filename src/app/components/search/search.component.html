@@ -1,0 +1,59 @@
+<nav class="navbar is-fixed-top is-white has-shadow" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <span class="navbar-item">Github user search</span>
+    </div>
+  </div>
+</nav>
+<div class="container" style="padding-top:75px;">
+  <div class="columns">
+    <div class="column is-12">
+      <section class="hero is-info is-small">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              Github user search
+            </h1>
+          </div>
+        </div>
+      </section>
+
+
+      <form class="well m-3">
+        <div class="form-group">
+          <input type="text" class="input" placeholder="Enter Github Username and Press Enter" [(ngModel)]="userName"
+            name="username" (keyup.enter)="searchUser($event)">
+        </div>
+      </form>
+
+
+      <section class="section">
+        <div class="container">
+          <div class="columns is-multiline">
+
+            <!-- loop over our users and give them each a card    -->
+            <div class="column is-4" *ngFor="let user of users">
+              <div class="card">
+                <div class="card-content">
+                  <a [routerLink]="['/profile/', user.login]">{{ user.login }}</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+    </div>
+  </div>
+</div>
